@@ -48,12 +48,70 @@ public class MinimalTree {
 		root.right = new MinimalTree(arr, mid + 1,end);
 	}
 	
+	public boolean foo(MinimalTree root){ // validates tree
+	// calls recursively
+
+		boolean b;
+		// base cases
+		// no left child
+		if (root.root.left == null){
+			if (root.root.right == null)
+				return true;
+			if (root.root.right.root.data < root.root.data){
+				System.out.println("false");
+				return false;
+			} // close if
+			// if it gets to this point it means that root.right is not null. Thus, we still have to call it recursively.
+			
+			return foo(root.root.right); // done recursing
+		} // close if
 	
+		// no right child
+		if (root.root.right == null){
+			if (root.root.left.root.data > root.root.data){
+				System.out.println("false");
+				return false;
+			}
+			
+			return foo(root.root.left);
+		}
+
+		// main case: has both left and right child
+		if (root.root.left.root.data > root.root.data || root.root.right.root.data < root.root.data){
+			System.out.println("false");
+			return false;
+		}
+
+		if (foo(root.root.left))
+			return foo(root.root.right);
+		return false;
+
+	} // close function
+
 	public static void main(String[] args) {
-// test cases
-		int [] arr = {0, 1, 2, 3, 4, 5, 6};
+	// test cases
+		//int [] arr = {0, 1, 2, 3, 4, 5, 6};
 		//int[] arr = {0, 1, 2, 3, 4, 5, 6, 7};
-		new MinimalTree(arr, 0, arr.length - 1);
-	}
+
+
+		// test cases for trees that are wrong
+		int [] arr1 = {3, 2, 1};
+		int [] arr2 = {3, 2, 3};
+		int [] arr3 = {1, 2, 1};
+		int [] arr4 = {1};
+
+		MinimalTree t = new MinimalTree(arr1, 0, arr1.length - 1);
+		System.out.println(t.foo(t));
+
+		t = new MinimalTree(arr2, 0, arr2.length - 1);
+		System.out.println(t.foo(t));
+
+		t = new MinimalTree(arr3, 0, arr3.length - 1);
+		System.out.println(t.foo(t)); 
+
+		t = new MinimalTree(arr4, 0, arr4.length - 1);
+		System.out.println(t.foo(t));
+
+	} // close main
 
 }
