@@ -1,3 +1,13 @@
+/********************
+Anne Huang
+
+This is my solution to problem 4.2 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
+p. 109.
+
+
+************************/
+
+// builds a binary search tree recursively
 
 public class MinimalTree {
 
@@ -9,6 +19,7 @@ public class MinimalTree {
 		int data;
 	}
 	
+	// takes as input an already sorted array of ints
 	public MinimalTree(int[] arr, int beg, int end){
 		
 		root = new Node();
