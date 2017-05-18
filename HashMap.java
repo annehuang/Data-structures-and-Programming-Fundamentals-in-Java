@@ -1,4 +1,5 @@
 // Anne Huang
+// This illustrates use of generics.
 
 package hashMap;
 
