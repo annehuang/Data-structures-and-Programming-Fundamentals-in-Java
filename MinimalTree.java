@@ -48,11 +48,10 @@ public class MinimalTree {
 		root.right = new MinimalTree(arr, mid + 1,end);
 	}
 	
-	public boolean foo(MinimalTree root){ // validates tree
-	// This is my solution to 4.5
+	public boolean foo(MinimalTree root, int min, int max){ // validates tree
+
 	// calls recursively
 
-		boolean b;
 		// base cases
 		// no left child
 		if (root.root.left == null){
@@ -63,16 +62,27 @@ public class MinimalTree {
 			} // close if
 			// if it gets to this point it means that root.right is not null. Thus, we still have to call it recursively.
 			
-			return foo(root.root.right); // done recursing
+			if (foo(root.root.right, root.root.data, max)){
+				if (root.root.right.root.data >= min)
+					return root.root.right.root.data <= max; // done recursing
+				return false;
+			}
+			return false;
 		} // close if
 	
+		// check min, max
 		// no right child
 		if (root.root.right == null){
 			if (root.root.left.root.data > root.root.data){
 				return false;
 			}
 			
-			return foo(root.root.left);
+			if (foo(root.root.left, min, root.root.data)){
+				if (root.root.left.root.data >= min)
+					return root.root.left.root.data <= max; // done recursing
+				return false;
+			}
+			return false;
 		}
 
 		// main case: has both left and right child
@@ -80,8 +90,20 @@ public class MinimalTree {
 			return false;
 		}
 
-		if (foo(root.root.left))
-			return foo(root.root.right);
+		if (foo(root.root.left, min, root.root.data)){
+			if (root.root.left.root.data >= min){
+				if (root.root.left.root.data <= max){
+					if (foo(root.root.right, root.root.data, max)){
+						if (root.root.right.root.data >= min)
+							return root.root.right.root.data <= max; // done recursing
+						return false;
+					}
+					return false;
+				}
+				return false;
+			}
+			return false;	
+		}
 		return false;
 
 	} // close function
@@ -93,22 +115,28 @@ public class MinimalTree {
 
 
 		// test cases for trees that are wrong
-		int [] arr1 = {3, 2, 1};
+		/*int [] arr1 = {3, 2, 1};
 		int [] arr2 = {3, 2, 3};
 		int [] arr3 = {1, 2, 1};
 		int [] arr4 = {1};
 
 		MinimalTree t = new MinimalTree(arr1, 0, arr1.length - 1);
-		System.out.println(t.foo(t));
+		System.out.println(t.foo(t, t.root.data, t.root.data));
 
 		t = new MinimalTree(arr2, 0, arr2.length - 1);
-		System.out.println(t.foo(t));
+		System.out.println(t.foo(t, t.root.data, t.root.data));
 
 		t = new MinimalTree(arr3, 0, arr3.length - 1);
-		System.out.println(t.foo(t)); 
+		System.out.println(t.foo(t, t.root.data, t.root.data)); 
 
 		t = new MinimalTree(arr4, 0, arr4.length - 1);
-		System.out.println(t.foo(t));
+		System.out.println(t.foo(t, t.root.data, t.root.data));
+		*/
+
+		int [] arr = {10, 25, 20, 30};
+		MinimalTree t = new MinimalTree(arr, 0, arr.length - 1);
+
+		System.out.println(t.foo(t, t.root.data, t.root.data));		
 
 	} // close main
 
