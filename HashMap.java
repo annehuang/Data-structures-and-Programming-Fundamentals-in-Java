@@ -20,12 +20,12 @@ public class HashMap<E> {
 	}
 	
 	public int hash(String key){
-		return key.hashCode() % N;
+		return key.hashCode() % N; // modular arithmetic
 	}
 	
 	public boolean set(String key, E value){
-		int hash = hash(key);
-		LinkedList<E> lst = arr[hash];
+		int hash = hash(key); // finds the hash
+		LinkedList<E> lst = arr[hash]; // stores it in the list for that hash
 		
 		return lst.set(key, value);
 	}
@@ -43,10 +43,6 @@ public class HashMap<E> {
 		LinkedList<E> lst = arr[hash];
 		
 		return lst.delete(key);
-	}
-	
-	public float load(){
-		return (float) items / size;
 	}
 	
 	public static void main(String[] args) {
