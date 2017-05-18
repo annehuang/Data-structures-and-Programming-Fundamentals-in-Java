@@ -1,7 +1,7 @@
 /********************
 Anne Huang
 
-This is my solution to problem 4.2 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
+This is my solution to problems 4.2 and 4.5 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
 p. 109.
 
 
@@ -49,6 +49,7 @@ public class MinimalTree {
 	}
 	
 	public boolean foo(MinimalTree root){ // validates tree
+	// This is my solution to 4.5
 	// calls recursively
 
 		boolean b;
@@ -69,7 +70,6 @@ public class MinimalTree {
 		// no right child
 		if (root.root.right == null){
 			if (root.root.left.root.data > root.root.data){
-				System.out.println("false");
 				return false;
 			}
 			
@@ -78,7 +78,6 @@ public class MinimalTree {
 
 		// main case: has both left and right child
 		if (root.root.left.root.data > root.root.data || root.root.right.root.data < root.root.data){
-			System.out.println("false");
 			return false;
 		}
 
