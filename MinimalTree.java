@@ -133,6 +133,7 @@ public class MinimalTree {
 		System.out.println(t.foo(t, t.root.data, t.root.data));
 		*/
 
+		// test case from p. 247
 		int [] arr = {10, 25, 20, 30};
 		MinimalTree t = new MinimalTree(arr, 0, arr.length - 1);
 
