@@ -59,7 +59,6 @@ public class MinimalTree {
 			if (root.root.right == null)
 				return true;
 			if (root.root.right.root.data < root.root.data){
-				System.out.println("false");
 				return false;
 			} // close if
 			// if it gets to this point it means that root.right is not null. Thus, we still have to call it recursively.
