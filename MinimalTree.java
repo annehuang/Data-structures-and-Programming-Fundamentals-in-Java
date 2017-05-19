@@ -38,6 +38,8 @@ public class MinimalTree {
 		}
 		
 		int mid = beg + (end - beg) / 2;
+		// The solution in the book gives (end + beg ) / 2.
+		// My solution is equivalent to (2* beg + end - beg) / 2, which is equivalent to (beg + end) / 2.
 
 		int median = arr[mid];
 		
