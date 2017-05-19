@@ -1,7 +1,7 @@
 /********************
 Anne Huang
-This is my solution to problems 4.2 and 4.5 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
-p. 109.
+This is my solution to problems 4.2, 4.5, and 4.6 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
+p. 109-110.
 ************************/
 
 // builds a binary search tree recursively
@@ -125,8 +125,7 @@ public class MinimalTree {
 
 	} // close function
 
-	// KEEP WORKING ON THIS
-	public Node successor(MinimalTree node){
+	public Node successor(MinimalTree node){ // This is my solution to 4.6
 		MinimalTree current = node;
 
 		// case 1: successor is ancestor
