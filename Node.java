@@ -1,4 +1,11 @@
-	public class Node<E>{
+// This is an implementation of a linked list using a generic node class.
+
+/****** This is my solution to problem 2.7 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016.
+p. 95.
+
+********/
+
+public class Node<E>{
 		E value;
 		Node next;
 
