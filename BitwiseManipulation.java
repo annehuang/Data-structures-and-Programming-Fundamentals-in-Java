@@ -1,11 +1,13 @@
 
 public class BitwiseManipulation {
 
+	/* This is my solution to problem 5.1 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016. p. 115. */
 	static int insert(int N, int M, int i, int j){
 		
 		return (N & (((1<< (i-1)) - 1) | (-1 << j))) | (M << i);
 	}
 
+	// This is my solution to Problem 5.6, p. 116
 	static int convert(int A, int B){
 		int xor = A ^ B;
 		int count = 0;
