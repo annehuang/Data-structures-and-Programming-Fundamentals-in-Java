@@ -1,4 +1,4 @@
-
+// demonstrating bitwise manipulation in Java.
 public class BitwiseManipulation {
 
 	/* This is my solution to problem 5.1 from Gayle Laakman McDowell, Cracking the Coding Interview, 6th Edition. Palto Alto: CareerCup, 2016. p. 115. */
