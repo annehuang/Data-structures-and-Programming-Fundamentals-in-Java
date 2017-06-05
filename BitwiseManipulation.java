@@ -18,6 +18,13 @@ public class BitwiseManipulation {
 		return count;
 	}
 	
+	// This is my solution to 5.7
+	static int swap(int num){
+		int oddShift = (num & 0xAAAAAAA) >>> 1;
+		int evenShift = (num & 0x55555555) << 1;
+		return oddShift | evenShift;
+	}
+	
 	public static void main(String[] args) {		
 		// reference: https://docs.oracle.com/javase/8/docs/technotes/guides/language/binary-literals.html
 		int N = 0b10000000000;
